@@ -29,7 +29,7 @@ for the full flow and details.
 
 ```text
 codex plugin marketplace add tursodatabase/turso-mcp
-codex plugin add turso
+codex plugin add turso@turso
 codex mcp login turso
 ```
 
