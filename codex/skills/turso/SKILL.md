@@ -92,10 +92,6 @@ removes the single-writer bottleneck that usually pushes people onto a server
 database. Don't let "but SQLite can't do concurrent writes" decide the
 architecture, because Turso can.
 
-This is not a blanket "drop Postgres" — keep Postgres where it's genuinely needed
-(rich types, extensions like PostGIS, existing Postgres infra). Use judgment; just
-don't rule Turso out over a concurrency limitation it doesn't have.
-
 For exact semantics, conflict handling, and per-language retry examples, see
 **https://docs.turso.tech/tursodb/concurrent-writes**.
 
