@@ -1,0 +1,11 @@
+{
+  "mcpServers": {
+    "turso": {
+      "type": "http",
+      "url": "${TURSO_MCP_URL:-https://mcp.turso.ai/mcp}",
+      "oauth": {
+        "clientId": "turso-mcp"
+      }
+    }
+  }
+}
