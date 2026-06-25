@@ -12,7 +12,7 @@ packaging. It also doubles as the plugin **marketplace** each agent's CLI can ad
 | Agent | Status | Location |
 |-------|--------|----------|
 | **Claude Code** | ✅ available | [`claude-code/`](claude-code/) |
-| Codex | 🛠️ planned | `codex/` |
+| **Codex** | ✅ available | [`codex/`](codex/) |
 | Cursor | 🛠️ planned | `cursor/` |
 
 ### Claude Code
@@ -25,11 +25,22 @@ packaging. It also doubles as the plugin **marketplace** each agent's CLI can ad
 Then `/mcp` → **turso** → **Authenticate**. See [`claude-code/README.md`](claude-code/README.md)
 for the full flow and details.
 
+### Codex
+
+```text
+codex plugin marketplace add tursodatabase/turso-mcp
+codex plugin add turso@turso
+codex mcp login turso
+```
+
+Bundles the MCP server **and** the Turso skill. See [`codex/README.md`](codex/README.md).
+(MCP-only alternative: add `[mcp_servers.turso] url = "https://mcp.turso.ai/mcp"`
+to `~/.codex/config.toml`, then `codex mcp login turso` — but that omits the skill.)
+
 ### Other agents
 
 Any MCP-capable client can also connect directly to the server — point it at
-`https://mcp.turso.ai/mcp` and complete the OAuth login. Per-agent, drop-in
-configs (Codex, Cursor, …) will live in their folders above.
+`https://mcp.turso.ai/mcp` and complete the OAuth login.
 
 ## How it works
 
