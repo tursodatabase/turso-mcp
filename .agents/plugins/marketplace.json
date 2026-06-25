@@ -5,10 +5,8 @@
       "name": "turso",
       "description": "Manage Turso Cloud (organizations, databases, groups) and run SQL from Codex via the hosted Turso MCP server.",
       "source": {
-        "source": "git-subdir",
-        "url": "https://github.com/tursodatabase/turso-mcp.git",
-        "path": "./codex",
-        "ref": "main"
+        "source": "path",
+        "path": "./codex"
       }
     }
   ]
