@@ -10,7 +10,7 @@ how to use the tools well), so Codex gets both the tools and the know-how.
 
 ```bash
 codex plugin marketplace add tursodatabase/turso-mcp
-codex plugin install turso
+codex plugin add turso
 ```
 
 Then authenticate:

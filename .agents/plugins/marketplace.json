@@ -1,13 +1,21 @@
 {
   "name": "turso",
+  "interface": {
+    "displayName": "Turso"
+  },
   "plugins": [
     {
       "name": "turso",
-      "description": "Manage Turso Cloud (organizations, databases, groups) and run SQL from Codex via the hosted Turso MCP server.",
       "source": {
-        "source": "path",
+        "source": "local",
         "path": "./codex"
-      }
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_INSTALL",
+        "products": ["CODEX"]
+      },
+      "category": "Developer Tools"
     }
   ]
 }
