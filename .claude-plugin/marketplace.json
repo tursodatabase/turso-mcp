@@ -8,7 +8,7 @@
   "plugins": [
     {
       "name": "turso",
-      "source": "./",
+      "source": "./claude-code",
       "description": "Manage Turso Cloud (organizations, databases, groups) and run SQL from your AI agent via the hosted Turso MCP server.",
       "category": "database",
       "tags": ["turso", "database", "sql", "mcp", "libsql"]
