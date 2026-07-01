@@ -1,0 +1,24 @@
+{
+  "name": "turso",
+  "version": "0.1.0",
+  "description": "Manage Turso Cloud (organizations, databases, groups) and run SQL from Codex via the hosted Turso MCP server.",
+  "homepage": "https://turso.tech",
+  "repository": "https://github.com/tursodatabase/turso-mcp",
+  "license": "MIT",
+  "author": {
+    "name": "Turso",
+    "url": "https://turso.tech"
+  },
+  "keywords": ["turso", "database", "sql", "mcp", "libsql"],
+  "skills": "./skills/",
+  "mcpServers": "./.mcp.json",
+  "interface": {
+    "displayName": "Turso",
+    "shortDescription": "Manage Turso Cloud and run SQL from Codex.",
+    "longDescription": "Connect Codex to Turso Cloud over the hosted MCP server. Manage organizations, databases, and groups, and run SQL, with OAuth login (no API token to copy).",
+    "developerName": "Turso",
+    "category": "Productivity",
+    "websiteURL": "https://turso.tech",
+    "privacyPolicyURL": "https://turso.tech/privacy-policy"
+  }
+}
