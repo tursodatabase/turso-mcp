@@ -8,7 +8,7 @@ copy, no environment variable, no secret in the repo.**
 ## Install
 
 ```text
-/plugin marketplace add tursodatabase/turso-mcp-plugin
+/plugin marketplace add tursodatabase/turso-mcp
 /plugin install turso@turso
 ```
 

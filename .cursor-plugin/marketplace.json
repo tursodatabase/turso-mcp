@@ -1,0 +1,13 @@
+{
+  "name": "turso",
+  "owner": {
+    "name": "Turso"
+  },
+  "plugins": [
+    {
+      "name": "turso",
+      "source": "./cursor",
+      "description": "Manage Turso Cloud (organizations, databases, groups) and run SQL from Cursor via the hosted Turso MCP server."
+    }
+  ]
+}

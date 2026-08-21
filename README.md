@@ -13,7 +13,7 @@ packaging. It also doubles as the plugin **marketplace** each agent's CLI can ad
 |-------|--------|----------|
 | **Claude Code** | ✅ available | [`claude-code/`](claude-code/) |
 | **Codex** | ✅ available | [`codex/`](codex/) |
-| Cursor | 🛠️ planned | `cursor/` |
+| **Cursor** | ✅ available | [`cursor/`](cursor/) |
 
 ### Claude Code
 
@@ -36,11 +36,22 @@ codex mcp login turso
 See [`codex/README.md`](codex/README.md) for the full flow, and a plugin-free
 `~/.codex/config.toml` alternative.
 
+### Cursor
+
+Install **Turso** from [Cursor's marketplace](https://cursor.com/marketplace)
+(or Customize → Plugins inside Cursor), then follow the login prompt in
+Settings → MCP.
+
+One-click alternative (MCP server only, no skill):
+[Add to Cursor](cursor://anysphere.cursor-deeplink/mcp/install?name=turso&config=eyJ1cmwiOiJodHRwczovL21jcC50dXJzby5haS9tY3AifQ==).
+
+See [`cursor/README.md`](cursor/README.md) for the full flow, a manual
+`mcp.json` alternative, and how to add the server to Cursor's web/cloud agents.
+
 ### Other agents
 
 Any MCP-capable client can also connect directly to the server — point it at
-`https://mcp.turso.ai/mcp` and complete the OAuth login. Per-agent, drop-in
-configs (Cursor, …) will live in their folders above.
+`https://mcp.turso.ai/mcp` and complete the OAuth login.
 
 ## How it works
 

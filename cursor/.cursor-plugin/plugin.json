@@ -1,0 +1,14 @@
+{
+  "name": "turso",
+  "displayName": "Turso",
+  "version": "0.1.0",
+  "description": "Manage Turso Cloud (organizations, databases, groups) and run SQL from Cursor via the hosted Turso MCP server — OAuth login, no API token to copy.",
+  "homepage": "https://turso.tech",
+  "repository": "https://github.com/tursodatabase/turso-mcp",
+  "license": "MIT",
+  "author": {
+    "name": "Turso"
+  },
+  "logo": "assets/logo.svg",
+  "keywords": ["turso", "database", "sqlite", "sql", "mcp", "libsql"]
+}
