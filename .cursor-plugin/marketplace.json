@@ -8,7 +8,7 @@
       "name": "turso",
       "source": "./cursor",
       "description": "Manage Turso Cloud (organizations, databases, groups) and run SQL from Cursor via the hosted Turso MCP server.",
-      "category": "Data & Analytics",
+      "category": "Infrastructure",
       "tags": [
         "turso",
         "database",
