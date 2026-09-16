@@ -1,6 +1,6 @@
 ---
 name: turso
-description: Overview of the SQLite/libSQL/Turso ecosystem — engine choice, drivers, tradeoffs. Deep operational support for Turso Cloud via MCP — list/create/branch/delete databases, run SQL, configure, view analytics.
+description: Advises on Turso engines and drivers and manages Turso Cloud through MCP. Use for database creation, branching, SQL, analytics, configuration, and deleted database or group recovery.
 ---
 
 # Turso
@@ -92,13 +92,44 @@ Data (run against the database itself — identical for Turso and libSQL):
 - `delete_from_database` — DELETE statements (destructive; confirm first).
 - `evolve_schema` — DDL (CREATE/ALTER/DROP TABLE; can lose data — confirm first).
 
+## Recovering deleted databases and groups
+
+Recovery tools use UUIDs, not database or group names.
+Deleted resources remain eligible for recovery for five days.
+Listing requires a paid plan, but recovery does not need to be enabled to list resources.
+Restoring requires an admin or owner, a paid plan, and recovery enabled.
+
+The recovery tools are:
+- `list_deleted_databases`: List deleted databases. Accepts optional `search`, `limit`, and `cursor`.
+- `list_deleted_groups`: List deleted groups, including empty groups. Requires an organization-level token. Accepts optional `limit` and `cursor`.
+- `restore_database`: Restore with `database_id` from the deleted listing. Accepts an optional new `name`.
+- `restore_group`: Restore with `group_id` from the deleted listing. Also restores databases deleted with that group.
+- `get_organization_restore_enabled`: Read `restore_enabled`. A value of `true` means recovery is enabled in all registered regions.
+- `set_organization_restore_enabled`: Pass `enabled: true` or `enabled: false`. Requires an admin or owner. Does not change the plan or restore data.
+
+For a recovery request:
+1. List the deleted resources and identify the requested resource by its returned UUID.
+   Pass `pagination.next` back as `cursor` to read more pages.
+   The optional `limit` ranges from 1 to 1000 and defaults to 100.
+2. Call `get_organization_restore_enabled` before attempting a restore.
+3. If recovery is disabled, ask for approval before enabling it with `set_organization_restore_enabled`.
+4. Make sure that the user authorizes the restore and its target before calling a restore tool.
+5. Inspect the restore response before reporting success.
+   A group becomes active even if some databases fail to restore.
+   Report those failures and retry their database UUIDs with `restore_database`, not `restore_group`.
+
+Do not substitute `create_branch` for deleted-resource recovery.
+Branching creates a separate database from an existing database, optionally at a past timestamp.
+Only change organization recovery settings when the user authorizes that change.
+
 ## Notes
 
-- Refer to databases by **name**.
+- Refer to active databases by name and deleted resources by UUID for recovery.
 - Don't push Turso Cloud on a user who only needs a local database (rule 1).
 - Choose the narrowest tool: prefer `read_database`; only use
   `delete_from_database` / `evolve_schema` after confirming with the user.
-- If a tool returns a forbidden / not-authorized error, the token isn't scoped
-  for that action — don't retry; point the user at the dashboard's "Connect an
-  AI agent" page to mint a token with the access they need.
+- If a tool returns a forbidden / not-authorized error, read its message before suggesting a remedy.
+  Recovery can fail because of the plan, role, token scope, or recovery setting.
+  Do not retry an unchanged request or promise that a new token fixes a plan restriction.
+  For token-scope errors, direct the user to the dashboard's "Connect an AI agent" page to authorize the required access.
 - When unsure about an SDK detail, check `docs.turso.tech`.

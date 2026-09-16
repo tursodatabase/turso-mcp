@@ -1,5 +1,5 @@
 {
-  "mcp_servers": {
+  "mcpServers": {
     "turso": {
       "url": "https://mcp.turso.ai/mcp"
     }

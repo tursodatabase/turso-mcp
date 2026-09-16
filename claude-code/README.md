@@ -40,6 +40,12 @@ on app-db"*, or *"add an index to the users table"*. The server exposes tools to
   The write tool refuses DELETE/DROP — those have dedicated, clearly-named tools.
 - **Insight** — per-database analytics (top queries by frequency/latency).
 
+Recovery tools can list and restore databases and groups deleted within five days.
+Listing requires a paid plan, even when recovery is disabled.
+Restoring also requires an admin or owner and recovery enabled.
+The agent can read or change the organization recovery setting with your approval.
+Group restores can partially succeed, so the agent must inspect and report database failures.
+
 Read-only vs. destructive operations are annotated, so Claude can reason about
 side effects and confirm before doing anything risky.
 
