@@ -46,6 +46,12 @@ app-db"*, or *"add an index to the users table"*. The server exposes tools to:
   The write tool refuses DELETE/DROP — those have dedicated, clearly-named tools.
 - **Insight** — per-database analytics (top queries by frequency/latency).
 
+Recovery tools can list and restore databases and groups deleted within five days.
+Listing requires a paid plan, even when recovery is disabled.
+Restoring also requires an admin or owner and recovery enabled.
+The agent can read or change the organization recovery setting with your approval.
+Group restores can partially succeed, so the agent must inspect and report database failures.
+
 Read-only vs. destructive operations are annotated, so Codex can reason about
 side effects and confirm before doing anything risky.
 
@@ -67,6 +73,10 @@ side effects and confirm before doing anything risky.
 - `skills/turso/SKILL.md` — guidance for the agent on the Turso ecosystem
   (engine choice, drivers) and how to use the tools well.
 - `.codex-plugin/` — the Codex plugin manifest.
+
+The plugin JSON uses `mcpServers`, unlike the `mcp_servers` table in Codex's TOML configuration.
+The manifest references `./.mcp.json` relative to the `codex/` plugin root.
+After installing the plugin, use `/mcp` in an interactive Codex session to inspect its active servers.
 
 ## Links
 
